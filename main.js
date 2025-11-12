@@ -15,14 +15,13 @@ start();
 
 async function petsArea() {
   const petsPromise = await fetch(
-    "https://learnwebcode.github.io/bootcamp-pet-data/pets.json"
+    "https://super-stroopwafel-536047.netlify.app/.netlify/functions/pets"
   );
   const petsData = await petsPromise.json();
   petsData.forEach((pet) => {
     const clone = template.content.cloneNode(true);
 
     clone.querySelector(".pet-card").dataset.species = pet.species;
-
     clone.querySelector("h3").textContent = pet.name;
     clone.querySelector(".pet-description").textContent = pet.description;
     clone.querySelector(".pet-age").textContent = createAgeText(pet.birthYear);
@@ -75,3 +74,4 @@ function handleButtonClick(e) {
     }
   });
 }
+
